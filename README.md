@@ -5,14 +5,16 @@ Deploys your source code from git to your server
 
 Role Variables
 --------------
+Defaults:
 
     sources_target_user: web-app
     sources_version: master
     sources_repo: ssh://git@myserver.com:22/projects/web-app.git
-    sources_git_pk:  ../../../files/git_pk
+    sources_git_pem:  files/git.pem
+    sources_target_dir: ~/web-app
 
 sources_version - git branch/tag/commit 
-sources_git_pk - path to private key to get access to your git repo through ssh
+sources_git_pem - path to private key to get access to your git repo through ssh. By default it fill search file "git.pem"
 
 Example Playbook
 ----------------
@@ -20,8 +22,7 @@ Example Playbook
       roles:
          - role: webbylab.sources
            sources_repo: ssh://git@myserver.com:22/projects/web-app.git
-           sources_git_pk:  ../../../files/git_pk
-           sources_version: prod
+           sources_git_pem:  files/git.pem
 
 
 You can clone several repositories
@@ -30,11 +31,11 @@ You can clone several repositories
       roles:
          - role: webbylab.sources
            sources_repo: ssh://git@myserver.com:22/projects/web-app-client.git
-           sources_git_pk:  ../../../files/git_pk
+           sources_git_pem:  files/git.pem
 
          - role: webbylab.sources
            sources_repo: ssh://git@myserver.com:22/projects/web-app-backend.git
-           sources_git_pk:  ../../../files/git_pk
+           sources_git_pem:  files/git.pem
 License
 -------
 

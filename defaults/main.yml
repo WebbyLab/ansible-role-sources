@@ -2,4 +2,5 @@
 sources_target_user: web-app
 sources_version: master
 sources_repo: ssh://git@myserver.com:22/projects/web-app.git
-sources_git_pk:  ../../../files/git_pk
+sources_git_pem:  files/git.pem
+sources_target_dir: ~/web-app

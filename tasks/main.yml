@@ -15,9 +15,9 @@
 - name: Copy development ssh keys
   sudo: yes
   sudo_user: '{{sources_target_user}}'
-  copy: 'src={{sources_git_pk}} dest=~/.ssh/id_rsa mode=0600'
+  copy: 'src={{sources_git_pem}} dest=~/.ssh/id_rsa mode=0600'
 
 - name: Sync Project Repositary
   sudo: yes
   sudo_user: '{{sources_target_user}}'
-  git: 'repo={{sources_repo}} dest=~/{{sources_target_dir}} version={{sources_version}} accept_hostkey=true'
+  git: 'repo={{sources_repo}} dest={{sources_target_dir}} version={{sources_version}} accept_hostkey=true'
