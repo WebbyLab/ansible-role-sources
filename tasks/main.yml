@@ -20,4 +20,4 @@
 - name: Sync Project Repositary
   sudo: yes
   sudo_user: '{{sources_target_user}}'
-  git: 'repo={{sources_repo}} dest={{sources_target_dir}} version={{sources_version}} accept_hostkey=true'
+  git: 'repo={{sources_repo}} dest={{sources_target_dir}} version={{sources_version}} accept_hostkey=true force={{sources_force}}'
