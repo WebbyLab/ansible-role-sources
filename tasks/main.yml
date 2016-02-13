@@ -21,4 +21,4 @@
   become: yes
   become_user: '{{sources_target_user}}'
   git: 'repo={{sources_repo}} dest={{sources_target_dir}} version={{sources_version}} accept_hostkey=true force={{sources_force}}'
-  notify: '{{sources_notify}}'
+  register: '{{sources_register}}'
