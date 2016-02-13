@@ -3,21 +3,21 @@
   user: 'name={{sources_target_user}} shell=/bin/bash home=/home/{{sources_target_user}} state=present'
 
 - name: Create .ssh dir
-  sudo: yes
-  sudo_user: '{{sources_target_user}}'
+  become: yes
+  become_user: '{{sources_target_user}}'
   file: 'path="~/.ssh" mode=0700 state=directory'
 
 - name: Disable stict host checking in ssh
-  sudo: yes
-  sudo_user: '{{sources_target_user}}'
+  become: yes
+  become_user: '{{sources_target_user}}'
   lineinfile: 'line="StrictHostKeyChecking no" create=yes dest=~/.ssh/config mode=0600 state=present'
 
 - name: Copy development ssh keys
-  sudo: yes
-  sudo_user: '{{sources_target_user}}'
+  become: yes
+  become_user: '{{sources_target_user}}'
   copy: 'src={{sources_git_pem}} dest=~/.ssh/id_rsa mode=0600'
 
 - name: Sync Project Repositary
-  sudo: yes
-  sudo_user: '{{sources_target_user}}'
+  become: yes
+  become_user: '{{sources_target_user}}'
   git: 'repo={{sources_repo}} dest={{sources_target_dir}} version={{sources_version}} accept_hostkey=true force={{sources_force}}'
