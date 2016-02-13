@@ -1,5 +1,5 @@
 ---
-- name: Create deploy user
+- name: "Create deploy user {{sources_target_user}}"
   user: 'name={{sources_target_user}} shell=/bin/bash home=/home/{{sources_target_user}} state=present'
 
 - name: Create .ssh dir
@@ -17,7 +17,8 @@
   become_user: '{{sources_target_user}}'
   copy: 'src={{sources_git_pem}} dest=~/.ssh/id_rsa mode=0600'
 
-- name: Sync Project Repositary
+- name: "Sync Project Repositary {{sources_repo}}"
   become: yes
   become_user: '{{sources_target_user}}'
   git: 'repo={{sources_repo}} dest={{sources_target_dir}} version={{sources_version}} accept_hostkey=true force={{sources_force}}'
+  notify: '{{sources_notify}}'
