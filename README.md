@@ -14,6 +14,7 @@ Defaults:
     sources_target_dir: ~/web-app
     sources_force: no
     sources_register: ""
+    sources_create_deploy_user: true
 
 sources_version - git branch/tag/commit
 sources_git_pem - path to private key to get access to your git repo through ssh. By default it fill search file "git.pem"
