@@ -1,6 +1,7 @@
 ---
 - name: "Create deploy user {{sources_target_user}}"
   user: 'name={{sources_target_user}} shell=/bin/bash home=/home/{{sources_target_user}} state=present'
+  when: sources_create_deploy_user
 
 - name: Create .ssh dir
   become: yes

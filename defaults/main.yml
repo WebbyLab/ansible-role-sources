@@ -6,3 +6,4 @@ sources_git_pem:  files/git.pem
 sources_target_dir: ~/web-app
 sources_force: no
 sources_register: ""
+sources_create_deploy_user: true
